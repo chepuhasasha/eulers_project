@@ -14,9 +14,10 @@ function FibRow(arr, limit) {
 }
 
 function EvenFibonacciNumbers(limit) {
+  const row = FibRow([1,2], limit)
   return {
-    sum: FibRow([1,2], limit).filter(num => !(num % 2)).reduce((accum, num) => accum + num),
-    row: FibRow([1,2], limit)
+    sum: row.filter(num => !(num % 2)).reduce((accum, num) => accum + num),
+    row
   }
 }
 
