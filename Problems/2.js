@@ -5,8 +5,19 @@
 Найдите сумму всех четных элементов ряда Фибоначчи, которые не превышают четыре миллиона.
 */
 
-// function MakeFibonacciRow(arr, limit) {
-// }
+function FibRow(arr, limit) {
+  arr.push(arr[arr.length - 1] + arr[arr.length - 2])
+  if(arr[arr.length - 1] < limit) {
+    FibRow(arr, limit)
+  }
+  return arr
+}
 
-// function EvenFibonacciNumbers(limit) {
-// }
+function EvenFibonacciNumbers(limit) {
+  return {
+    sum: FibRow([1,2], limit).filter(num => !(num % 2)).reduce((accum, num) => accum + num),
+    row: FibRow([1,2], limit)
+  }
+}
+
+console.log(EvenFibonacciNumbers(4000000))
