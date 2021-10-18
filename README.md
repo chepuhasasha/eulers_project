@@ -1,1 +1,1 @@
-# algorithms
+# Euler's project
